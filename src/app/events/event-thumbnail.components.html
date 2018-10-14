@@ -1,0 +1,19 @@
+<div class="well hoverwell thumbnail">
+    <h3 class="glow">{{eventInput?.name}}</h3>
+    <div>Date: {{eventInput?.date}}</div>
+    <div [ngSwitch]="eventInput?.time"> 
+        Time: {{eventInput?.time}}
+        <span *ngSwitchCase="'8:00 am'" [ngClass]="getStartTimeClass()">(Early Start)</span>
+        <span *ngSwitchCase="'10:00 am'" [ngClass]="getStartTimeClass()">(Late Start)</span>
+        <span *ngSwitchDefault [ngClass]="getStartTimeClass()">(Normal Start)</span>
+    </div>
+    <div>Price: $ {{eventInput?.price}}</div>
+    <div *ngIf="eventInput?.location">
+        <span>Location: {{eventInput?.location.address}}</span>
+        <span class="pad-left">{{eventInput?.location.city}}, {{eventInput?.location.country}}</span>
+    </div>
+    <div [hidden]="!eventInput?.onlineURL">
+        Online URL: {{eventInput?.onlineURL}}
+    </div>
+    <button class="btn btn-primary" (click)="handleClickMe()">Register!</button>
+</div>

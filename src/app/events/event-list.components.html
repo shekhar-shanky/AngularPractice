@@ -1,0 +1,11 @@
+<event-thumbnail #thumbnail (eventOutput)="handleEventClicked($event)" [eventInput]="event"></event-thumbnail>
+<button class="btn btn-primary" (click)="thumbnail.logFoo()">Log Foo From Child TS</button>
+<br/>
+<hr/>
+<div>
+    <div class="row">
+        <div *ngFor="let eventInput of events" class="col-md-6" >
+            <event-thumbnail (click)="handleThumbnailClick(eventInput?.name)" [eventInput]="eventInput"></event-thumbnail>
+        </div>
+    </div>
+</div>
