@@ -1,2 +1,0 @@
-# AngularPractice
-AngularPractice
